@@ -1,0 +1,37 @@
+<div class="container">
+   <h1>My Movies</h1>
+<span> Search: </span> <input type="text" [(ngModel)]="searchBy"><br><br> <a routerLink="addMovie" class="btn btn-danger">Add Movie</a>
+&nbsp; <a routerLink="addTask" class="btn btn-success">Add Tasks</a>
+<p *ngIf="moviesList.length!=0;else showThis"></p>
+    <div class="row">
+
+        <div class="card" style="width: 35%;margin: 10px;"  *ngFor="let movie of moviesList |search:searchBy | sort ">
+         
+            <img [src]="movie.image" routerLink="movieDetails/{{movie.name}}" class="card-img-top" alt="..." width="100%" height="50%">
+            <div class="card-body" >
+                <h3 class="card-title">Name: {{movie.name}}</h3>
+               <h4 class="card-title">Director: {{movie.directorName |nameFormat:"-"}}</h4>
+              <small>Release: {{movie.releaseDate|date:'dd-MM-yyyy'}}</small>
+            </div>
+       
+        </div>   
+    </div>
+    <ng-template #showThis>Movie Not Found</ng-template>
+   <!-- <hr>
+    <br>
+
+    <h4>Watched Movies</h4>
+
+    <div *ngFor="let movie of watchedMovies ">
+
+        <div class="card" style="width: 60%;">
+            <img [src]="movie[0]" class="card-img-top" alt="..." width="30%" height="30%">
+            <div class="card-body" style="width: 60%;">
+                <h6 class="card-title"> {{movie[1]}}</h6>
+               
+            </div>
+        
+    </div>
+</div>-->
+</div>
+
